@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 export const FetchData=(path)=>{
   const [Data,setData]=useState([]);
-
+  const API_KEY="be90e85639aad5bb19bc5325c8c23b45"
   console.log(path);
-  var url=`https://api.themoviedb.org/3/${path}?api_key=${process.env.API_KEY}`;
+  var url=`https://api.themoviedb.org/3/${path}?api_key=${API_KEY}`;
 
   console.log(url);
   
