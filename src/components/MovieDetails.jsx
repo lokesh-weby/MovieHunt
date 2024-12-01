@@ -5,7 +5,8 @@ import style from "../MovieDetails.module.css"
 const MovieDetails = () => {
     const [Data,setData]=useState({});
     var params=useParams();
-    var MovieDetaialsUrl=`https://api.themoviedb.org/3/movie/${params.id}?api_key=be90e85639aad5bb19bc5325c8c23b45`
+    //be90e85639aad5bb19bc5325c8c23b45
+    var MovieDetaialsUrl=`https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.API_KEY}`
 
     useEffect(()=>{
         async function fetchMovies(){
