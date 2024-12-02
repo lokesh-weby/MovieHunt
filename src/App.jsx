@@ -3,20 +3,8 @@ import Movielist from './components/movielist';
 import MovieDetails from './components/MovieDetails';
 import Nav from './components/nav'
 import Footer from './components/footer';
-
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 function App() {
 
-  AOS.init({ 
-    startEvent: 'DOMContentLoaded',
-    duration: 300, 
-    easing: 'ease',
-    once: false, 
-    mirror: true, 
-    anchorPlacement: 'top-bottom', 
-  
-  });
   return (
     <>
       <Nav/>

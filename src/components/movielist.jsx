@@ -15,7 +15,7 @@ const Movielist = ({ title, API_ENDPOINT }) => {
     <>
       <section className="container-fluid flex">
         {Data.map((movie, index) => (
-          <div key={index} className="wrapper" data-aos="zoom-in-up" data-aos-delay="100">
+          <div key={index} className="wrapper">
             <div className="imgWrapper">
               <img
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
