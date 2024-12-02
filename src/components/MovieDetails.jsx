@@ -1,55 +1,83 @@
-import React, { useEffect,useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import style from "../MovieDetails.module.css"
+import React, { useEffect, useState } from "react";
+import { data, Link, useParams } from "react-router-dom";
+import style from "../MovieDetails.module.css";
 
 const MovieDetails = () => {
-    const [Data,setData]=useState({});
-    var params=useParams();
-    var MovieDetaialsUrl=`https://api.themoviedb.org/3/movie/${params.id}?api_key=be90e85639aad5bb19bc5325c8c23b45`
+  const [Data, setData] = useState({});
+  var params = useParams();
+  var MovieDetaialsUrl = `https://api.themoviedb.org/3/movie/${params.id}?api_key=be90e85639aad5bb19bc5325c8c23b45`;
 
-    useEffect(()=>{
-        async function fetchMovies(){
-            fetch(MovieDetaialsUrl)
-            .then((res)=>res.json())
-            .then((JsonData)=>setData(JsonData));      
-          }
-          fetchMovies();
-    },[MovieDetaialsUrl])
+  useEffect(() => {
+    async function fetchMovies() {
+      fetch(MovieDetaialsUrl)
+        .then((res) => res.json())
+        .then((JsonData) => setData(JsonData));
+    //   console.log(Data);
+    }
+    fetchMovies();
+  }, [MovieDetaialsUrl]);
 
-    useEffect(()=>{
-        document.title=Data.title
-    })
-    console.log(Data);
-    
+  useEffect(() => {
+    document.title = Data.title;
+  });
+
   return (
     <>
-    <div className={style.wrapper+" container"}>
+      <div className={style.wrapper + " container"}>
         <div className={style.img}>
-              <img src={`https://image.tmdb.org/t/p/original${Data.backdrop_path}`} alt=""  />
+          <img
+            src={`https://image.tmdb.org/t/p/original${Data.backdrop_path}`}
+            alt=""
+          />
         </div>
         <aside>
-            <h1 className={style.title}>
-                {Data.title}
-            </h1>
-            <p>{Data.overview}</p>
-            <p>ORIGIN: {Data.origin_country}</p>
-            <p>Status: {Data.status}</p>
+          <h1 className={style.title + " text-danger"}>{Data.title}</h1>
+          <ul>
+            {Data.genres
+              ? Data.genres.map((genre, index) => (
+                  <li className="bg-danger" key={index}>
+                    {genre.name}
+                  </li>
+                ))
+              : ""}
+          </ul>
+          <p className="text-secondary">{Data.overview}</p>
+          <div className={style.details}>
+            <p>
+              <i class="bi bi-globe2"></i> {Data.origin_country}
+            </p>
+            <p> Website: {Data.homepage?<a href={Data.homepage} target="_blank">{Data.homepage}</a>:"NA"}</p>
             <div className={style.vote}>
-            <p>Revenue: {Data.revenue} </p>
-            <p>RunTime:{Data.runtime}</p>
+              <p>
+                Release-date: {Data.release_date}
+              </p>
+              <p>
+                <i class="bi bi-clock-history"></i>
+                {parseFloat(Data.runtime / 60).toFixed(2)} Hrs
+              </p>
             </div>
             <div className={style.vote}>
-            <p>Vote Count: {Data.vote_count}</p>
-            <p><i class="bi bi-star-fill"></i> {parseInt(Data.vote_average).toFixed(2)}/10</p>
+              <p>
+                <i class="bi bi-people-fill text-danger" />
+                {Data.vote_count}
+              </p>
+              <p>
+                <i class="bi bi-star-fill text-warning"></i> 
+                {parseInt(Data.vote_average).toFixed(2)}/10
+              </p>
             </div>
-            <Link to={`https://www.imdb.com/title/${Data.imdb_id}/`} target='_blank' className='btn btn-primary'>View ImDB </Link>
+          </div>
+          <Link
+            to={`https://www.imdb.com/title/${Data.imdb_id}/`}
+            target="_blank"
+            className="btn btn-danger"
+          >
+            View ImDB{" "}
+          </Link>
         </aside>
-       
-
-    </div>
-    
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default MovieDetails
+export default MovieDetails;
