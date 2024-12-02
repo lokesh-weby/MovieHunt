@@ -2,6 +2,7 @@ import { Route,Routes } from 'react-router-dom';
 import Movielist from './components/movielist';
 import MovieDetails from './components/MovieDetails';
 import Nav from './components/nav'
+import Footer from './components/footer';
 function App() {
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
       <Route path="/movies/:id" element={<MovieDetails title="Movie"/>}/>
       <Route path="*" element={<Movielist title="404 Not Found"/>}/>
     </Routes>
+    <Footer/>
     </>
   );
 }

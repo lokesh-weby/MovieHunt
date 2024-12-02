@@ -4,7 +4,7 @@ import '../App.css'
 const Footer = () => {
   return (
     <>
-<footer className='container'>
+<footer>
     <p>© {new Date().getFullYear()} MovieHunt. All Rights Reserved.</p>
   </footer> 
     </>

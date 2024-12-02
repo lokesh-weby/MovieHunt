@@ -35,7 +35,7 @@ const MovieDetails = () => {
             <p>ORIGIN: {Data.origin_country}</p>
             <p>Status: {Data.status}</p>
             <div className={style.vote}>
-            <p>Revenue: ${Data.revenue} </p>
+            <p>Revenue: {Data.revenue} </p>
             <p>RunTime:{Data.runtime}</p>
             </div>
             <div className={style.vote}>

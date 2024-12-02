@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
-
-import Footer from './footer'
+import React, { useEffect } from 'react'
 import '../App.css'
 import { FetchData } from '../controller/controller'
 import { Link } from 'react-router-dom'
@@ -23,12 +21,12 @@ const {Data}=FetchData(API_ENDPOINT)
             </div>
             <h2>{movie.title}</h2>
               <p className='text-overflow-2'>{movie.overview}</p>
-              <Link to={`/movies/${movie.id}`} className='btn btn-danger'>View More</Link>
+              <Link to={`/movies/${movie.id}`} className='btn btn-primary'>View More</Link>
             </div>
           ))}
 
       </section>
-      <Footer/>
+  
      
     </>
   )

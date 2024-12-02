@@ -1,40 +1,58 @@
 :root{
-  --primary:wheat;
-  --secondary:black;
-  --decent:blue;
+  --primary:rgba(93, 89, 89, 0.482);
+  --secondary:white;
+  --decent:#a0b6cd;
+  --fontcolor:black;
 }
 body{
   background-color: var(--primary);
-  color:var(--secondary);
+  color:var(--fontcolor);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 section{
   min-height: 85vh;
   margin-top: 60px;
 }
+.wrapper h2{
+  color: rgb(54, 78, 236);
+}
+
 nav{
   margin-top: 10px;
-  background-color:rgba(255, 255, 255, 0.725);
-  backdrop-filter: blur(5px);
+  background-color:rgba(4, 4, 4, 0.385);
+  backdrop-filter: blur(10px);
   border-radius: 30px;
-  box-shadow: 0px 0px 5px var(--secondary);
+  box-shadow: 0px 0px 5px var(--primary);
+}
+.navbar-nav a{
+  font-size: 1rem;
+  font-weight: 400;
+}
+nav a{
+  color: var(--secondary) !important;
+  
 }
 footer{
   display: grid;
   place-items: center;
   height: 20vh;
-  border-top: 1px solid var(--secondary);
+  color: rgb(58, 58, 58);
+  border-top: 1px solid rgba(255, 255, 255, 0.359);
+  box-shadow: 2px 2px 10px black;
+  margin-top: 30px;
 }
 .wrapper{
   margin: 25px 0px;
   width: 400px;
-  background-color: white;
+  background-color: var(--secondary);
+  color:var(--fontcolor);
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
   border-radius: 15px;
-  border: 1px solid rgba(80, 79, 79, 0.284);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.397);
 }
 .flex{
   display: flex;
@@ -44,11 +62,11 @@ footer{
 }
 .imgWrapper{
   position: relative;
-  margin-bottom:30px;
+  /* margin-bottom:0px; */
   height: 400px;
 }
 img{
-  height: 100%;
+  height: 90%;
   width: 100%;
   object-fit: fill;
   background-position: bottom;
@@ -68,17 +86,17 @@ img{
   width: 70px;
   position: absolute;
 
-  top: 100%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%,-50%);
-  background-color: rgb(53, 49, 49);
+  background-color: rgb(38, 79, 243);
   color: white;
 
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border: 8px solid white;
+  border: 8px solid var(--secondary);
   border-radius: 50%;
   
 }
