@@ -46,7 +46,7 @@ const  Movielist = ({ title, API_ENDPOINT }) => {
       <motion.div className="slide-Animation"
       initial={{y:"0"}}
       animate={{y:"-100%"}}
-      transition={{duration:2,
+      transition={{duration:3,
         ease:[0.2,1,0.2,1]}}
       
       />
