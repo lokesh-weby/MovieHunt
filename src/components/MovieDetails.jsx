@@ -25,7 +25,7 @@ const MovieDetails = () => {
     <>
       <div className={style.wrapper + " container"}>
         <div className={style.img}>
-          <img
+          <img loading="lazy"
             src={`https://image.tmdb.org/t/p/original${Data.backdrop_path}`}
             alt=""
           />

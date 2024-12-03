@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import "../App.css";
 import { FetchData } from "../controller/controller";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
-const Movielist = ({ title, API_ENDPOINT }) => {
+const  Movielist = ({ title, API_ENDPOINT }) => {
   useEffect(() => {
     document.title = title;
   }, [title]);
@@ -17,7 +18,7 @@ const Movielist = ({ title, API_ENDPOINT }) => {
         {Data.map((movie, index) => (
           <div key={index} className="wrapper">
             <div className="imgWrapper">
-              <img
+              <img loading="lazy"
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 alt=""
               />
@@ -42,6 +43,15 @@ const Movielist = ({ title, API_ENDPOINT }) => {
           </div>
         ))}
       </section>
+      <motion.div className="slide-Animation"
+      initial={{y:"0"}}
+      animate={{y:"-100%"}}
+      transition={{duration:2,
+        ease:[0.2,1,0.2,1]}}
+      
+      />
+      
+ 
     </>
   );
 };
