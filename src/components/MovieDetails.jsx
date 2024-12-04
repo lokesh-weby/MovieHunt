@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { data, Link, useParams } from "react-router-dom";
 import style from "../MovieDetails.module.css";
+import { motion } from "framer-motion";
 
 const MovieDetails = () => {
   const [Data, setData] = useState({});
@@ -20,6 +21,10 @@ const MovieDetails = () => {
   useEffect(() => {
     document.title = Data.title;
   });
+
+  function trimString(str) {
+    return str.length > 35 ? str.substring(0, 30) + "..." : str;
+}
 
   return (
     <>
@@ -46,7 +51,7 @@ const MovieDetails = () => {
             <p>
               <i class="bi bi-globe2"></i> {Data.origin_country}
             </p>
-            <p> Website: {Data.homepage?<a href={Data.homepage} target="_blank">{Data.homepage}</a>:"NA"}</p>
+            <p> Website: {Data.homepage?<a href={Data.homepage} target="_blank">{trimString(Data.homepage)}</a>:"NA"}</p>
             <div className={style.vote}>
               <p>
                 Release-date: {Data.release_date}
@@ -76,6 +81,20 @@ const MovieDetails = () => {
           </Link>
         </aside>
       </div>
+      <motion.div className="slide-in"
+      initial={{scaleY:0}}
+      animate={{scaleY:0}}
+      exit={{scaleY:1}}
+      transition={{duration:1,
+        ease:[0.22,1,0.36,1]}}
+      />
+       <motion.div className="slide-out"
+      initial={{scaleY:0}}
+      animate={{scaleY:0}}
+      exit={{scaleY:1}}
+      transition={{duration:1,
+        ease:[0.22,1,0.36,1]}}
+      />
     </>
   );
 };

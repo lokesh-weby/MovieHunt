@@ -6,7 +6,7 @@ const Nav = () => {
   return (
 
 <nav className="navbar fixed-top navbar-expand-lg px-5 ">
-  <NavLink className="navbar-brand" to="/">MovieHunt</NavLink>
+  <NavLink className="navbar-brand" to="/"> <i class="bi bi-caret-left-fill"></i>MovieHunt</NavLink>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>

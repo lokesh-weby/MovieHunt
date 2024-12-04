@@ -16,7 +16,7 @@ const  Movielist = ({ title, API_ENDPOINT }) => {
     <>
       <section className="container-fluid flex">
         {Data.map((movie, index) => (
-          <div key={index} className="wrapper">
+          <div key={index} className="wrapper" title={movie.original_title}>
             <div className="imgWrapper">
               <img loading="lazy"
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -43,12 +43,19 @@ const  Movielist = ({ title, API_ENDPOINT }) => {
           </div>
         ))}
       </section>
-      <motion.div className="slide-Animation"
-      initial={{y:"0"}}
-      animate={{y:"-100%"}}
-      transition={{duration:3,
-        ease:[0.2,1,0.2,1]}}
-      
+      <motion.div className="slide-in"
+      initial={{scaleY:0}}
+      animate={{scaleY:0}}
+      exit={{scaleY:1}}
+      transition={{duration:1,
+        ease:[0.22,1,0.36,1]}}
+      />
+       <motion.div className="slide-out"
+      initial={{scaleY:0}}
+      animate={{scaleY:0}}
+      exit={{scaleY:1}}
+      transition={{duration:1,
+        ease:[0.22,1,0.36,1]}}
       />
       
  
